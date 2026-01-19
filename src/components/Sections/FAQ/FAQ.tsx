@@ -1,4 +1,55 @@
+"use client";
+
+import { useState } from "react";
+
+const faqItems = [
+  {
+    id: "after-call",
+    question: "What does ActionLog do after a sales call?",
+    answer: "ActionLog automatically captures everything that matters after a sales or customer call. It transcribes the conversation, generates clear summaries, extracts action items, and prepares follow-ups—so nothing is missed and every next step is tracked.",
+  },
+  {
+    id: "automate-workflows",
+    question: "How does ActionLog automate post-sales workflows?",
+    answer: "After each call, ActionLog uses AI to identify decisions, commitments, risks, and next steps. It then automatically creates tasks, follow-up emails, and CRM updates, ensuring your post-sales process runs smoothly without manual work.",
+  },
+  {
+    id: "security",
+    question: "How secure is my call data?",
+    answer: "Your data is protected using enterprise-grade encryption both in transit and at rest. ActionLog follows industry best practices for data privacy and compliance, ensuring your customer conversations remain confidential and secure.",
+  },
+  {
+    id: "integration",
+    question: "Can ActionLog integrate with my existing tools?",
+    answer: "Yes. ActionLog integrates seamlessly with popular CRMs, email platforms, and collaboration tools such as Salesforce, HubSpot, Slack, and more—allowing you to fit it directly into your existing workflow.",
+  },
+  {
+    id: "free-trial",
+    question: "Is there a free plan or trial available?",
+    answer: "Yes. ActionLog offers a free plan so you can experience post-sales automation firsthand. You can upgrade at any time as your team grows and your usage increases.",
+  },
+  {
+    id: "save-time",
+    question: "How does ActionLog save me time?",
+    answer: "ActionLog eliminates manual note-taking, task creation, and follow-up drafting. By automating everything that happens after a call, teams save hours every week and can focus on closing deals and strengthening customer relationships.",
+  },
+];
+
 export default function FAQ() {
+  const [openItems, setOpenItems] = useState<Set<string>>(new Set());
+
+  const toggleItem = (id: string) => {
+    setOpenItems((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  };
+
   return (
     <section
       id="faq"
@@ -16,311 +67,60 @@ export default function FAQ() {
         </div>
       </div>
       <div className="max-w-3xl w-full mx-auto px-10">
-        <div
-          data-slot="accordion"
-          className="w-full border-b-0 grid gap-2"
-          data-orientation="vertical"
-        >
-          <div
-            data-state="closed"
-            data-orientation="vertical"
-            data-slot="accordion-item"
-            className="last:border-b-0 border-0 grid gap-2"
-          >
-            <h3
-              data-orientation="vertical"
-              data-state="closed"
-              className="flex"
-            >
-              <button
-                type="button"
-                aria-controls="radix-«R16if5b»"
-                aria-expanded="false"
-                data-state="closed"
-                data-orientation="vertical"
-                id="radix-«R6if5b»"
-                data-slot="accordion-trigger"
-                className="focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&amp;[data-state=open]&gt;svg]:rotate-180 border bg-accent border-border rounded-lg px-4 py-3.5 cursor-pointer no-underline hover:no-underline data-[state=open]:ring data-[state=open]:ring-primary/20"
-                data-radix-collection-item=""
+        <div className="w-full border-b-0 grid gap-2">
+          {faqItems.map((item) => {
+            const isOpen = openItems.has(item.id);
+            return (
+              <div
+                key={item.id}
+                className="last:border-b-0 border-0 grid gap-2"
               >
-                What is an AI Agent?
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-chevron-down text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200"
+                <h3 className="flex">
+                  <button
+                    type="button"
+                    onClick={() => toggleItem(item.id)}
+                    aria-expanded={isOpen}
+                    className={`focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 border bg-accent border-border rounded-lg px-4 py-3.5 cursor-pointer no-underline hover:no-underline ${
+                      isOpen ? "ring ring-primary/20" : ""
+                    }`}
+                  >
+                    {item.question}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={`lucide lucide-chevron-down text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                </h3>
+                <div
+                  role="region"
+                  data-state={isOpen ? "open" : "closed"}
+                  className={`overflow-hidden text-sm transition-all duration-200 ease-out ${
+                    isOpen
+                      ? "max-h-[500px] opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
                 >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-            </h3>
-            <div
-              data-state="closed"
-              id="radix-«R16if5b»"
-              role="region"
-              aria-labelledby="radix-«R6if5b»"
-              data-orientation="vertical"
-              data-slot="accordion-content"
-              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
-              // style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
-            ></div>
-          </div>
-          <div
-            data-state="closed"
-            data-orientation="vertical"
-            data-slot="accordion-item"
-            className="last:border-b-0 border-0 grid gap-2"
-          >
-            <h3
-              data-orientation="vertical"
-              data-state="closed"
-              className="flex"
-            >
-              <button
-                type="button"
-                aria-controls="radix-«R1aif5b»"
-                aria-expanded="false"
-                data-state="closed"
-                data-orientation="vertical"
-                id="radix-«Raif5b»"
-                data-slot="accordion-trigger"
-                className="focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&amp;[data-state=open]&gt;svg]:rotate-180 border bg-accent border-border rounded-lg px-4 py-3.5 cursor-pointer no-underline hover:no-underline data-[state=open]:ring data-[state=open]:ring-primary/20"
-                data-radix-collection-item=""
-              >
-                How does ActionLog work?
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-chevron-down text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-            </h3>
-            <div
-              data-state="closed"
-              id="radix-«R1aif5b»"
-              role="region"
-              aria-labelledby="radix-«Raif5b»"
-              data-orientation="vertical"
-              data-slot="accordion-content"
-              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
-              // style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
-            ></div>
-          </div>
-          <div
-            data-state="closed"
-            data-orientation="vertical"
-            data-slot="accordion-item"
-            className="last:border-b-0 border-0 grid gap-2"
-          >
-            <h3
-              data-orientation="vertical"
-              data-state="closed"
-              className="flex"
-            >
-              <button
-                type="button"
-                aria-controls="radix-«R1eif5b»"
-                aria-expanded="false"
-                data-state="closed"
-                data-orientation="vertical"
-                id="radix-«Reif5b»"
-                data-slot="accordion-trigger"
-                className="focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&amp;[data-state=open]&gt;svg]:rotate-180 border bg-accent border-border rounded-lg px-4 py-3.5 cursor-pointer no-underline hover:no-underline data-[state=open]:ring data-[state=open]:ring-primary/20"
-                data-radix-collection-item=""
-              >
-                How secure is my data?
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-chevron-down text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-            </h3>
-            <div
-              data-state="closed"
-              id="radix-«R1eif5b»"
-              role="region"
-              aria-labelledby="radix-«Reif5b»"
-              data-orientation="vertical"
-              data-slot="accordion-content"
-              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
-              // style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
-            ></div>
-          </div>
-          <div
-            data-state="closed"
-            data-orientation="vertical"
-            data-slot="accordion-item"
-            className="last:border-b-0 border-0 grid gap-2"
-          >
-            <h3
-              data-orientation="vertical"
-              data-state="closed"
-              className="flex"
-            >
-              <button
-                type="button"
-                aria-controls="radix-«R1iif5b»"
-                aria-expanded="false"
-                data-state="closed"
-                data-orientation="vertical"
-                id="radix-«Riif5b»"
-                data-slot="accordion-trigger"
-                className="focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&amp;[data-state=open]&gt;svg]:rotate-180 border bg-accent border-border rounded-lg px-4 py-3.5 cursor-pointer no-underline hover:no-underline data-[state=open]:ring data-[state=open]:ring-primary/20"
-                data-radix-collection-item=""
-              >
-                Can I integrate my existing tools?
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-chevron-down text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-            </h3>
-            <div
-              data-state="closed"
-              id="radix-«R1iif5b»"
-              role="region"
-              aria-labelledby="radix-«Riif5b»"
-              data-orientation="vertical"
-              data-slot="accordion-content"
-              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
-              // style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
-            ></div>
-          </div>
-          <div
-            data-state="closed"
-            data-orientation="vertical"
-            data-slot="accordion-item"
-            className="last:border-b-0 border-0 grid gap-2"
-          >
-            <h3
-              data-orientation="vertical"
-              data-state="closed"
-              className="flex"
-            >
-              <button
-                type="button"
-                aria-controls="radix-«R1mif5b»"
-                aria-expanded="false"
-                data-state="closed"
-                data-orientation="vertical"
-                id="radix-«Rmif5b»"
-                data-slot="accordion-trigger"
-                className="focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&amp;[data-state=open]&gt;svg]:rotate-180 border bg-accent border-border rounded-lg px-4 py-3.5 cursor-pointer no-underline hover:no-underline data-[state=open]:ring data-[state=open]:ring-primary/20"
-                data-radix-collection-item=""
-              >
-                Is there a free trial available?
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-chevron-down text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-            </h3>
-            <div
-              data-state="closed"
-              id="radix-«R1mif5b»"
-              role="region"
-              aria-labelledby="radix-«Rmif5b»"
-              data-orientation="vertical"
-              data-slot="accordion-content"
-              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
-              // style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
-            ></div>
-          </div>
-          <div
-            data-state="closed"
-            data-orientation="vertical"
-            data-slot="accordion-item"
-            className="last:border-b-0 border-0 grid gap-2"
-          >
-            <h3
-              data-orientation="vertical"
-              data-state="closed"
-              className="flex"
-            >
-              <button
-                type="button"
-                aria-controls="radix-«R1qif5b»"
-                aria-expanded="false"
-                data-state="closed"
-                data-orientation="vertical"
-                id="radix-«Rqif5b»"
-                data-slot="accordion-trigger"
-                className="focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&amp;[data-state=open]&gt;svg]:rotate-180 border bg-accent border-border rounded-lg px-4 py-3.5 cursor-pointer no-underline hover:no-underline data-[state=open]:ring data-[state=open]:ring-primary/20"
-                data-radix-collection-item=""
-              >
-                How does ActionLog save me time?
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-chevron-down text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-            </h3>
-            <div
-              data-state="closed"
-              id="radix-«R1qif5b»"
-              role="region"
-              aria-labelledby="radix-«Rqif5b»"
-              data-orientation="vertical"
-              data-slot="accordion-content"
-              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
-              // style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
-            ></div>
-          </div>
+                  {item.answer && (
+                    <div className="px-4 pb-3.5 pt-0 text-muted-foreground">
+                      {item.answer}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

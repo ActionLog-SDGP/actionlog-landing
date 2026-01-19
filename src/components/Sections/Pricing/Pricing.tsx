@@ -54,7 +54,8 @@ export default function Pricing() {
                 </span>
                 <span className="ml-2">/month</span>
               </div>
-              <p className="text-sm mt-2">Perfect for individual users</p>
+              <p className="text-sm mt-2">Perfect for individuals getting started with post-call automation
+              </p>
             </div>
             <div className="flex flex-col gap-2 p-4">
               <button className="h-10 w-full flex items-center justify-center text-sm font-normal tracking-wide rounded-full px-4 cursor-pointer transition-all ease-out active:scale-95 bg-accent text-primary shadow-[0px_1px_2px_0px_rgba(255,255,255,0.16)_inset,0px_3px_3px_-1.5px_rgba(16,24,40,0.24),0px_1px_1px_-0.5px_rgba(16,24,40,0.20)]">
@@ -63,7 +64,8 @@ export default function Pricing() {
             </div>
             <hr className="border-border dark:border-white/20" />
             <div className="p-4">
-              <p className="text-sm mb-4">Everything in Pro +</p>
+              <p className="text-sm mb-4">Includes:
+              </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
@@ -102,7 +104,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Custom domain</span>
+                  <span className="text-sm">Call recording (limited)
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
@@ -141,7 +144,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">SEO-optimizations</span>
+                  <span className="text-sm">AI call transcription
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
@@ -180,7 +184,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Auto-generated API docs</span>
+                  <span className="text-sm">Basic call summaries
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
@@ -219,8 +224,52 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Built-in components library</span>
+                  <span className="text-sm">Action item extraction
+                  </span>
                 </li>
+
+                <li className="flex items-center gap-2">
+                  <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
+                    <div className="size-3 flex items-center justify-center">
+                      <svg
+                        width="8"
+                        height="7"
+                        viewBox="0 0 8 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="block dark:hidden"
+                      >
+                        <path
+                          d="M1.5 3.48828L3.375 5.36328L6.5 0.988281"
+                          stroke="#101828"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        ></path>
+                      </svg>
+                      <svg
+                        width="8"
+                        height="7"
+                        viewBox="0 0 8 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="hidden dark:block"
+                      >
+                        <path
+                          d="M1.5 3.48828L3.375 5.36328L6.5 0.988281"
+                          stroke="#FAFAFA"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <span className="text-sm">Email follow-up drafts
+                  </span>
+                </li>
+
+           
               </ul>
             </div>
           </div>
@@ -246,7 +295,7 @@ export default function Pricing() {
                 <span className="ml-2">/month</span>
               </div>
               <p className="text-sm mt-2">
-                Ideal for professionals and small teams
+              Ideal for sales reps and small teams
               </p>
             </div>
             <div className="flex flex-col gap-2 p-4">
@@ -256,7 +305,8 @@ export default function Pricing() {
             </div>
             <hr className="border-border dark:border-white/20" />
             <div className="p-4">
-              <p className="text-sm mb-4">Everything in Pro +</p>
+              <p className="text-sm mb-4">Everything in Free +
+              </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border flex items-center justify-center bg-muted-foreground/40 border-border">
@@ -295,7 +345,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Custom domain</span>
+                  <span className="text-sm">Unlimited call recordings
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border flex items-center justify-center bg-muted-foreground/40 border-border">
@@ -334,7 +385,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">SEO-optimizations</span>
+                  <span className="text-sm">Advanced AI summaries & insights
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border flex items-center justify-center bg-muted-foreground/40 border-border">
@@ -373,7 +425,7 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Auto-generated API docs</span>
+                  <span className="text-sm">CRM integration (HubSpot, Salesforce, etc.)</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border flex items-center justify-center bg-muted-foreground/40 border-border">
@@ -412,7 +464,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Built-in components library</span>
+                  <span className="text-sm">Automated follow-ups & task creation
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border flex items-center justify-center bg-muted-foreground/40 border-border">
@@ -451,7 +504,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">E-commerce integration</span>
+                  <span className="text-sm">Multi-user team workspace
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border flex items-center justify-center bg-muted-foreground/40 border-border">
@@ -490,86 +544,9 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">User authentication system</span>
+                  <span className="text-sm">Call performance analytics</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="size-5 rounded-full border flex items-center justify-center bg-muted-foreground/40 border-border">
-                    <div className="size-3 flex items-center justify-center">
-                      <svg
-                        width="8"
-                        height="7"
-                        viewBox="0 0 8 7"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="block dark:hidden"
-                      >
-                        <path
-                          d="M1.5 3.48828L3.375 5.36328L6.5 0.988281"
-                          stroke="#101828"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        ></path>
-                      </svg>
-                      <svg
-                        width="8"
-                        height="7"
-                        viewBox="0 0 8 7"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="hidden dark:block"
-                      >
-                        <path
-                          d="M1.5 3.48828L3.375 5.36328L6.5 0.988281"
-                          stroke="#FAFAFA"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <span className="text-sm">Multi-language support</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="size-5 rounded-full border flex items-center justify-center bg-muted-foreground/40 border-border">
-                    <div className="size-3 flex items-center justify-center">
-                      <svg
-                        width="8"
-                        height="7"
-                        viewBox="0 0 8 7"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="block dark:hidden"
-                      >
-                        <path
-                          d="M1.5 3.48828L3.375 5.36328L6.5 0.988281"
-                          stroke="#101828"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        ></path>
-                      </svg>
-                      <svg
-                        width="8"
-                        height="7"
-                        viewBox="0 0 8 7"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="hidden dark:block"
-                      >
-                        <path
-                          d="M1.5 3.48828L3.375 5.36328L6.5 0.988281"
-                          stroke="#FAFAFA"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <span className="text-sm">Real-time collaboration tools</span>
-                </li>
+            
               </ul>
             </div>
           </div>
@@ -590,7 +567,8 @@ export default function Pricing() {
                 <span className="ml-2">/month</span>
               </div>
               <p className="text-sm mt-2">
-                Best for large teams and enterprise-level organizations
+              Best for large sales teams and enterprise organizations
+
               </p>
             </div>
             <div className="flex flex-col gap-2 p-4">
@@ -639,7 +617,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Custom domain</span>
+                  <span className="text-sm">Contact Sales
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
@@ -678,7 +657,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">SEO-optimizations</span>
+                  <span className="text-sm">Real-time collaboration & shared insights
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
@@ -717,7 +697,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Auto-generated API docs</span>
+                  <span className="text-sm">Custom AI models & workflows
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
@@ -756,7 +737,8 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Built-in components librarys</span>
+                  <span className="text-sm">Advanced security & role-based access
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
@@ -795,7 +777,49 @@ export default function Pricing() {
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm">Real-time collaboration tools</span>
+                  <span className="text-sm">Compliance support (GDPR, SOC-ready)
+                  </span>
+                </li>
+
+                <li className="flex items-center gap-2">
+                  <div className="size-5 rounded-full border border-primary/20 flex items-center justify-center">
+                    <div className="size-3 flex items-center justify-center">
+                      <svg
+                        width="8"
+                        height="7"
+                        viewBox="0 0 8 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="block dark:hidden"
+                      >
+                        <path
+                          d="M1.5 3.48828L3.375 5.36328L6.5 0.988281"
+                          stroke="#101828"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        ></path>
+                      </svg>
+                      <svg
+                        width="8"
+                        height="7"
+                        viewBox="0 0 8 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="hidden dark:block"
+                      >
+                        <path
+                          d="M1.5 3.48828L3.375 5.36328L6.5 0.988281"
+                          stroke="#FAFAFA"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <span className="text-sm">Priority support & SLA
+                  </span>
                 </li>
               </ul>
             </div>

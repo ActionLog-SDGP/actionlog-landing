@@ -1,6 +1,325 @@
 import Image from "next/image";
 
+const testimonials = [
+  {
+    id: 1,
+    quote: "Post-call follow-ups are now effortless.",
+    highlight: "The AI summaries and action items are incredibly accurate. Our team saves hours every week after sales calls.",
+    name: "James Carter",
+    title: "Sales Manager",
+    company: "BrightFlow Systems",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+  },
+  {
+    id: 2,
+    quote: "Exactly what our customer success team needed.",
+    highlight: "We finally have a single source of truth for every customer call. CRM syncing works flawlessly.",
+    name: "Emily Watson",
+    title: "Head of Customer Success",
+    company: "CloudNest Technologies",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+  {
+    id: 3,
+    quote: "Turns conversations into revenue.",
+    highlight: "Automated follow-ups ensure nothing slips through the cracks. It's become part of our daily sales workflow.",
+    name: "Michael Anderson",
+    title: "Revenue Operations Lead",
+    company: "GrowthPath AI",
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
+  },
+  {
+    id: 4,
+    quote: "A game changer for growing sales teams.",
+    highlight: "As we scaled, manual note-taking stopped working. This tool brought clarity, accountability, and speed.",
+    name: "Sarah Thompson",
+    title: "Director of Sales",
+    company: "Elevate Solutions",
+    image: "https://randomuser.me/api/portraits/women/28.jpg",
+  },
+  {
+    id: 5,
+    quote: "Impressive accuracy and insights.",
+    highlight: "Even complex customer discussions are captured perfectly. The AI insights help us coach reps better.",
+    name: "Daniel Brooks",
+    title: "Senior Account Executive",
+    company: "SyncWave Software",
+    image: "https://randomuser.me/api/portraits/men/15.jpg",
+  },
+  {
+    id: 6,
+    quote: "Enterprise-ready automation done right.",
+    highlight: "Security, collaboration, and automation are all thoughtfully built. It fits seamlessly into our enterprise stack.",
+    name: "Jonathan Miller",
+    title: "VP of Sales Operations",
+    company: "Stratus Digital",
+    image: "https://randomuser.me/api/portraits/men/68.jpg",
+  },
+  {
+    id: 7,
+    quote: "No more missed action items.",
+    highlight: "Every call is automatically transcribed and summarized. Our team never loses track of commitments or next steps.",
+    name: "Rachel Martinez",
+    title: "Account Manager",
+    company: "TechVenture Partners",
+    image: "https://randomuser.me/api/portraits/women/56.jpg",
+  },
+  {
+    id: 8,
+    quote: "The ROI is immediate and measurable.",
+    highlight: "We've reduced follow-up time by 70% and improved our response rate significantly. The analytics are incredibly valuable.",
+    name: "David Chen",
+    title: "Sales Operations Manager",
+    company: "Nexus Analytics",
+    image: "https://randomuser.me/api/portraits/men/41.jpg",
+  },
+  {
+    id: 9,
+    quote: "Seamless integration with our existing tools.",
+    highlight: "Works perfectly with Salesforce and Slack. Our entire team stays in sync without any manual work.",
+    name: "Lisa Park",
+    title: "VP of Revenue",
+    company: "DataFlow Inc",
+    image: "https://randomuser.me/api/portraits/women/33.jpg",
+  },
+  {
+    id: 10,
+    quote: "Transformed how we handle discovery calls.",
+    highlight: "The AI captures every detail we need for qualification. Our conversion rate from discovery to demo has doubled.",
+    name: "Robert Taylor",
+    title: "Sales Director",
+    company: "InnovateLabs",
+    image: "https://randomuser.me/api/portraits/men/27.jpg",
+  },
+  {
+    id: 11,
+    quote: "Best investment we made this year.",
+    highlight: "The time savings alone justify the cost. But the quality of insights and improved customer relationships are priceless.",
+    name: "Amanda Foster",
+    title: "Chief Revenue Officer",
+    company: "ScaleUp Dynamics",
+    image: "https://randomuser.me/api/portraits/women/19.jpg",
+  },
+  {
+    id: 12,
+    quote: "Our reps love the automatic note-taking.",
+    highlight: "They can focus on the conversation instead of frantically typing. The summaries are always accurate and comprehensive.",
+    name: "Kevin Rodriguez",
+    title: "Sales Enablement Lead",
+    company: "Velocity Solutions",
+    image: "https://randomuser.me/api/portraits/men/53.jpg",
+  },
+  {
+    id: 13,
+    quote: "Game-changing for remote sales teams.",
+    highlight: "With distributed teams, having consistent call documentation is crucial. This tool ensures nothing gets lost in translation.",
+    name: "Jennifer Kim",
+    title: "Head of Sales",
+    company: "RemoteFirst Corp",
+    image: "https://randomuser.me/api/portraits/women/61.jpg",
+  },
+  {
+    id: 14,
+    quote: "The AI understands context perfectly.",
+    highlight: "It doesn't just transcribe—it actually understands what matters. The action items are always relevant and actionable.",
+    name: "Mark Williams",
+    title: "Sales Engineering Manager",
+    company: "CloudBridge Systems",
+    image: "https://randomuser.me/api/portraits/men/36.jpg",
+  },
+  {
+    id: 15,
+    quote: "Reduced our onboarding time significantly.",
+    highlight: "New reps can review call summaries to learn best practices. It's like having a training library built automatically.",
+    name: "Nicole Brown",
+    title: "Director of Sales Training",
+    company: "Acme Technologies",
+    image: "https://randomuser.me/api/portraits/women/47.jpg",
+  },
+  {
+    id: 16,
+    quote: "Perfect for high-volume sales environments.",
+    highlight: "We handle hundreds of calls weekly. The automation ensures every conversation is properly documented and followed up.",
+    name: "Chris Mitchell",
+    title: "VP of Sales",
+    company: "RapidScale Inc",
+    image: "https://randomuser.me/api/portraits/men/48.jpg",
+  },
+  {
+    id: 17,
+    quote: "The transcription quality is outstanding.",
+    highlight: "Even with background noise or multiple speakers, the AI captures everything accurately. It's incredibly reliable.",
+    name: "Patricia Johnson",
+    title: "Sales Operations Director",
+    company: "TechFlow Solutions",
+    image: "https://randomuser.me/api/portraits/women/52.jpg",
+  },
+  {
+    id: 18,
+    quote: "Streamlined our entire sales process.",
+    highlight: "From initial contact to closing, every step is tracked and documented. Our sales cycle has become much more efficient.",
+    name: "Thomas Wilson",
+    title: "Chief Sales Officer",
+    company: "NextGen Enterprises",
+    image: "https://randomuser.me/api/portraits/men/29.jpg",
+  },
+  {
+    id: 19,
+    quote: "Incredible time savings for our team.",
+    highlight: "What used to take hours of manual work now happens automatically. We've reclaimed 15+ hours per week per rep.",
+    name: "Michelle Davis",
+    title: "Sales Manager",
+    company: "ProActive Sales",
+    image: "https://randomuser.me/api/portraits/women/38.jpg",
+  },
+  {
+    id: 20,
+    quote: "The best sales tool we've implemented.",
+    highlight: "It's become essential to our workflow. I can't imagine running our sales team without it now.",
+    name: "Andrew Garcia",
+    title: "Director of Revenue",
+    company: "SalesForce Dynamics",
+    image: "https://randomuser.me/api/portraits/men/51.jpg",
+  },
+  {
+    id: 21,
+    quote: "Improved our customer relationships.",
+    highlight: "By never missing a detail or commitment, our customers trust us more. It's elevated our service quality significantly.",
+    name: "Stephanie White",
+    title: "Customer Success Manager",
+    company: "ClientFirst Solutions",
+    image: "https://randomuser.me/api/portraits/women/25.jpg",
+  },
+  {
+    id: 22,
+    quote: "Makes remote sales management easy.",
+    highlight: "I can review all team calls without being on them. The visibility into our sales process is game-changing.",
+    name: "Ryan Martinez",
+    title: "Sales Team Lead",
+    company: "Distributed Sales Co",
+    image: "https://randomuser.me/api/portraits/men/34.jpg",
+  },
+  {
+    id: 23,
+    quote: "The AI insights are incredibly valuable.",
+    highlight: "It identifies patterns and opportunities we would have missed. It's like having a sales analyst on every call.",
+    name: "Lauren Anderson",
+    title: "Head of Sales Strategy",
+    company: "Strategic Sales Group",
+    image: "https://randomuser.me/api/portraits/women/42.jpg",
+  },
+  {
+    id: 24,
+    quote: "Essential for enterprise sales teams.",
+    highlight: "Complex deals require detailed documentation. This tool ensures nothing falls through the cracks in our long sales cycles.",
+    name: "Brian Thompson",
+    title: "Enterprise Sales Director",
+    company: "GlobalTech Solutions",
+    image: "https://randomuser.me/api/portraits/men/46.jpg",
+  },
+  {
+    id: 25,
+    quote: "Transformed our sales coaching.",
+    highlight: "We use call summaries to identify coaching opportunities. Our reps are improving faster than ever before.",
+    name: "Jessica Lee",
+    title: "Sales Enablement Manager",
+    company: "Growth Partners",
+    image: "https://randomuser.me/api/portraits/women/35.jpg",
+  },
+  {
+    id: 26,
+    quote: "The ROI speaks for itself.",
+    highlight: "Within the first month, we saw measurable improvements in follow-up rates and deal velocity. It pays for itself.",
+    name: "Matthew Harris",
+    title: "Revenue Operations Manager",
+    company: "ScaleUp Ventures",
+    image: "https://randomuser.me/api/portraits/men/39.jpg",
+  },
+  {
+    id: 27,
+    quote: "Perfect integration with our stack.",
+    highlight: "Works seamlessly with HubSpot, Slack, and our other tools. The setup was quick and painless.",
+    name: "Ashley Clark",
+    title: "Sales Operations Lead",
+    company: "TechStack Solutions",
+    image: "https://randomuser.me/api/portraits/women/31.jpg",
+  },
+  {
+    id: 28,
+    quote: "Our close rate improved dramatically.",
+    highlight: "Better follow-ups and documentation led to a 25% increase in our close rate. The impact is undeniable.",
+    name: "Jason Lewis",
+    title: "Sales Director",
+    company: "CloseRate Inc",
+    image: "https://randomuser.me/api/portraits/men/43.jpg",
+  },
+  {
+    id: 29,
+    quote: "A must-have for modern sales teams.",
+    highlight: "If you're not using AI for call documentation, you're falling behind. This tool keeps us competitive.",
+    name: "Samantha Walker",
+    title: "VP of Sales",
+    company: "Modern Sales Co",
+    image: "https://randomuser.me/api/portraits/women/49.jpg",
+  },
+  {
+    id: 30,
+    quote: "The support team is exceptional.",
+    highlight: "Not only is the product great, but the customer support is top-notch. They're always responsive and helpful.",
+    name: "Daniel Young",
+    title: "Sales Manager",
+    company: "SupportFirst Solutions",
+    image: "https://randomuser.me/api/portraits/men/37.jpg",
+  },
+];
+
+function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
+  return (
+                  <div
+                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
+      id={testimonial.id.toString()}
+                  >
+      <div className="select-none leading-relaxed font-normal text-primary/90 w-full">
+        <div className="mb-2 text-yellow-500">⭐️⭐️⭐️⭐️⭐️</div>
+        <p className="mb-2 font-medium">{testimonial.quote}</p>
+                      <p>
+                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
+            {testimonial.highlight}
+                        </span>
+                      </p>
+                    </div>
+                    <div className="flex w-full select-none items-center justify-start gap-3.5">
+                      <Image
+          src={testimonial.image}
+          alt={testimonial.name}
+                        className="size-8 rounded-full"
+                        width={32}
+                        height={32}
+                      />
+                      <div>
+          <p className="font-medium text-primary/90">{testimonial.name}</p>
+                        <p className="text-xs font-normal text-primary/50">
+            {testimonial.title}
+          </p>
+                        <p className="text-xs font-normal text-primary/50">
+            {testimonial.company}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+  );
+}
+
 export default function Testimonials() {
+  // Duplicate testimonials for smooth infinite scrolling
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+  
+  // Split testimonials evenly across columns for better distribution
+  const testimonialsPerColumn = Math.ceil(duplicatedTestimonials.length / 3);
+  const column1 = duplicatedTestimonials.slice(0, testimonialsPerColumn);
+  const column2 = duplicatedTestimonials.slice(testimonialsPerColumn, testimonialsPerColumn * 2);
+  const column3 = duplicatedTestimonials.slice(testimonialsPerColumn * 2);
+
   return (
     <section
       id="testimonials"
@@ -14,1713 +333,52 @@ export default function Testimonials() {
           <p className="text-muted-foreground text-center text-balance font-medium">
             Ask your AI Agent for real-time collaboration, seamless
             integrations, and actionable insights to streamline your operations.
-          </p>
-        </div>
-      </div>
-      <div className="h-full">
-        <div className="px-10">
+                      </p>
+                    </div>
+                      </div>
+      <div className="h-full w-full">
+        <div className="px-6 md:px-10 lg:px-16 py-8">
           <div className="relative max-h-[750px] overflow-hidden">
-            <div className="gap-0 md:columns-2 xl:columns-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+              {/* Column 1 */}
               <div className="group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)] flex-col">
                 <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="1"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        The AI-driven analytics from #QuantumInsights have
-                        revolutionized our product development cycle.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Insights are now more accurate and faster than ever.
-                        </span>{" "}
-                        A game-changer for tech companies.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/91.jpg"
-                        alt="Alex Rivera"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Alex Rivera
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CTO at InnovateTech
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="2"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Implementing #AIStream&apos;s customer prediction model has
-                        drastically improved our targeting strategy.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Seeing a 50% increase in conversion rates!
-                        </span>
-                        Highly recommend their solutions.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/12.jpg"
-                        alt="Samantha Lee"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Samantha Lee
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Marketing Director at NextGen Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="3"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        As a startup, we need to move fast and stay ahead.
-                        #CodeAI&apos;s automated coding assistant helps us do just
-                        that.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our development speed has doubled.
-                        </span>{" "}
-                        Essential tool for any startup.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/45.jpg"
-                        alt="Raj Patel"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Raj Patel</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Founder &amp; CEO at StartUp Grid
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  {column1.map((testimonial, index) => (
+                    <TestimonialCard key={`col1-first-${testimonial.id}-${index}`} testimonial={testimonial} />
+                  ))}
                 </div>
                 <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="1"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        The AI-driven analytics from #QuantumInsights have
-                        revolutionized our product development cycle.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Insights are now more accurate and faster than ever.
-                        </span>{" "}
-                        A game-changer for tech companies.
-                      </p>
+                  {column1.map((testimonial, index) => (
+                    <TestimonialCard key={`col1-second-${testimonial.id}-${index}`} testimonial={testimonial} />
+                  ))}
                     </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/91.jpg"
-                        alt="Alex Rivera"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Alex Rivera
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CTO at InnovateTech
-                        </p>
                       </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="2"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Implementing #AIStream&apos;s customer prediction model has
-                        drastically improved our targeting strategy.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Seeing a 50% increase in conversion rates!
-                        </span>{" "}
-                        Highly recommend their solutions.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/12.jpg"
-                        alt="Samantha Lee"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Samantha Lee
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Marketing Director at NextGen Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="3"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        As a startup, we need to move fast and stay ahead.
-                        #CodeAI&apos;s automated coding assistant helps us do just
-                        that.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our development speed has doubled.
-                        </span>{" "}
-                        Essential tool for any startup.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/45.jpg"
-                        alt="Raj Patel"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Raj Patel</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Founder &amp; CEO at StartUp Grid
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              
+              {/* Column 2 */}
+              <div className="group flex overflow-hidden p-2 [--duration:45s] [--gap:1rem] [gap:var(--gap)] flex-col">
+                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
+                  {column2.map((testimonial, index) => (
+                    <TestimonialCard key={`col2-first-${testimonial.id}-${index}`} testimonial={testimonial} />
+                  ))}
                 </div>
                 <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="1"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        The AI-driven analytics from #QuantumInsights have
-                        revolutionized our product development cycle.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Insights are now more accurate and faster than ever.
-                        </span>{" "}
-                        A game-changer for tech companies.
-                      </p>
+                  {column2.map((testimonial, index) => (
+                    <TestimonialCard key={`col2-second-${testimonial.id}-${index}`} testimonial={testimonial} />
+                  ))}
                     </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/91.jpg"
-                        alt="Alex Rivera"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Alex Rivera
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CTO at InnovateTech
-                        </p>
                       </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="2"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Implementing #AIStream&apos;s customer prediction model has
-                        drastically improved our targeting strategy.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Seeing a 50% increase in conversion rates!
-                        </span>{" "}
-                        Highly recommend their solutions.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/12.jpg"
-                        alt="Samantha Lee"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Samantha Lee
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Marketing Director at NextGen Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="3"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        As a startup, we need to move fast and stay ahead.
-                        #CodeAI&apos;s automated coding assistant helps us do just
-                        that.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our development speed has doubled.
-                        </span>{" "}
-                        Essential tool for any startup.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/45.jpg"
-                        alt="Raj Patel"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Raj Patel</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Founder &amp; CEO at StartUp Grid
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              
+              {/* Column 3 */}
+              <div className="group flex overflow-hidden p-2 [--duration:50s] [--gap:1rem] [gap:var(--gap)] flex-col hidden xl:flex">
+                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
+                  {column3.map((testimonial, index) => (
+                    <TestimonialCard key={`col3-first-${testimonial.id}-${index}`} testimonial={testimonial} />
+                  ))}
                 </div>
                 <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="1"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        The AI-driven analytics from #QuantumInsights have
-                        revolutionized our product development cycle.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Insights are now more accurate and faster than ever.
-                        </span>{" "}
-                        A game-changer for tech companies.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/91.jpg"
-                        alt="Alex Rivera"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Alex Rivera
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CTO at InnovateTech
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="2"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Implementing #AIStream&apos;s customer prediction model has
-                        drastically improved our targeting strategy.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Seeing a 50% increase in conversion rates!
-                        </span>{" "}
-                        Highly recommend their solutions.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/12.jpg"
-                        alt="Samantha Lee"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Samantha Lee
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Marketing Director at NextGen Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="3"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        As a startup, we need to move fast and stay ahead.
-                        #CodeAI&apos;s automated coding assistant helps us do just
-                        that.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our development speed has doubled.
-                        </span>{" "}
-                        Essential tool for any startup.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/45.jpg"
-                        alt="Raj Patel"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Raj Patel</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Founder &amp; CEO at StartUp Grid
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-col [--duration:60s]">
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="4"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #VoiceGen&apos;s AI-driven voice synthesis has made creating
-                        global products a breeze.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Localization is now seamless and efficient.
-                        </span>{" "}
-                        A must-have for global product teams.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/83.jpg"
-                        alt="Emily Chen"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Emily Chen
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Product Manager at Digital Wave
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="5"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Leveraging #DataCrunch&apos;s AI for our financial models has
-                        given us an edge in predictive accuracy.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our investment strategies are now powered by real-time
-                          data analytics.
-                        </span>{" "}
-                        Transformative for the finance industry.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/1.jpg"
-                        alt="Michael Brown"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Michael Brown
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Data Scientist at FinTech Innovations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="6"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #LogiTech&apos;s supply chain optimization tools have
-                        drastically reduced our operational costs.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Efficiency and accuracy in logistics have never been
-                          better.
-                        </span>{" "}
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/5.jpg"
-                        alt="Linda Wu"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Linda Wu</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          VP of Operations at LogiChain Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="4"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #VoiceGen&apos;s AI-driven voice synthesis has made creating
-                        global products a breeze.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Localization is now seamless and efficient.
-                        </span>{" "}
-                        A must-have for global product teams.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/83.jpg"
-                        alt="Emily Chen"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Emily Chen
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Product Manager at Digital Wave
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="5"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Leveraging #DataCrunch&apos;s AI for our financial models has
-                        given us an edge in predictive accuracy.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our investment strategies are now powered by real-time
-                          data analytics.
-                        </span>{" "}
-                        Transformative for the finance industry.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/1.jpg"
-                        alt="Michael Brown"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Michael Brown
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Data Scientist at FinTech Innovations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="6"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #LogiTech&apos;s supply chain optimization tools have
-                        drastically reduced our operational costs.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Efficiency and accuracy in logistics have never been
-                          better.
-                        </span>{" "}
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/5.jpg"
-                        alt="Linda Wu"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Linda Wu</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          VP of Operations at LogiChain Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="4"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #VoiceGen&apos;s AI-driven voice synthesis has made creating
-                        global products a breeze.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Localization is now seamless and efficient.
-                        </span>{" "}
-                        A must-have for global product teams.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/83.jpg"
-                        alt="Emily Chen"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Emily Chen
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Product Manager at Digital Wave
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="5"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Leveraging #DataCrunch&apos;s AI for our financial models has
-                        given us an edge in predictive accuracy.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our investment strategies are now powered by real-time
-                          data analytics.
-                        </span>{" "}
-                        Transformative for the finance industry.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/1.jpg"
-                        alt="Michael Brown"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Michael Brown
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Data Scientist at FinTech Innovations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="6"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #LogiTech&apos;s supply chain optimization tools have
-                        drastically reduced our operational costs.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Efficiency and accuracy in logistics have never been
-                          better.
-                        </span>{" "}
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/5.jpg"
-                        alt="Linda Wu"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Linda Wu</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          VP of Operations at LogiChain Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="4"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #VoiceGen&apos;s AI-driven voice synthesis has made creating
-                        global products a breeze.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Localization is now seamless and efficient.
-                        </span>{" "}
-                        A must-have for global product teams.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/83.jpg"
-                        alt="Emily Chen"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Emily Chen
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Product Manager at Digital Wave
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="5"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Leveraging #DataCrunch&apos;s AI for our financial models has
-                        given us an edge in predictive accuracy.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our investment strategies are now powered by real-time
-                          data analytics.
-                        </span>{" "}
-                        Transformative for the finance industry.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/1.jpg"
-                        alt="Michael Brown"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Michael Brown
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Data Scientist at FinTech Innovations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="6"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #LogiTech&apos;s supply chain optimization tools have
-                        drastically reduced our operational costs.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Efficiency and accuracy in logistics have never been
-                          better.
-                        </span>{" "}
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/5.jpg"
-                        alt="Linda Wu"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Linda Wu</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          VP of Operations at LogiChain Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-col [--duration:30s]">
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="7"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        By integrating #GreenTech&apos;s sustainable energy
-                        solutions, we&apos;ve seen a significant reduction in carbon
-                        footprint.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Leading the way in eco-friendly business practices.
-                        </span>{" "}
-                        Pioneering change in the industry.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/14.jpg"
-                        alt="Carlos Gomez"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Carlos Gomez
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Head of R&amp;D at EcoInnovate
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="8"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #TrendSetter&apos;s market analysis AI has transformed how we
-                        approach fashion trends.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our campaigns are now data-driven with higher customer
-                          engagement.
-                        </span>{" "}
-                        Revolutionizing fashion marketing.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/56.jpg"
-                        alt="Aisha Khan"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Aisha Khan
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Chief Marketing Officer at Fashion Forward
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="9"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Implementing #MediCareAI in our patient care systems has
-                        improved patient outcomes significantly.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Technology and healthcare working hand in hand for
-                          better health.
-                        </span>{" "}
-                        A milestone in medical technology.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/18.jpg"
-                        alt="Tom Chen"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Tom Chen</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Director of IT at HealthTech Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="7"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        By integrating #GreenTech&apos;s sustainable energy
-                        solutions, we&apos;ve seen a significant reduction in carbon
-                        footprint.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Leading the way in eco-friendly business practices.
-                        </span>{" "}
-                        Pioneering change in the industry.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/14.jpg"
-                        alt="Carlos Gomez"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Carlos Gomez
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Head of R&amp;D at EcoInnovate
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="8"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #TrendSetter&apos;s market analysis AI has transformed how we
-                        approach fashion trends.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our campaigns are now data-driven with higher customer
-                          engagement.
-                        </span>{" "}
-                        Revolutionizing fashion marketing.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/56.jpg"
-                        alt="Aisha Khan"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Aisha Khan
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Chief Marketing Officer at Fashion Forward
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="9"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Implementing #MediCareAI in our patient care systems has
-                        improved patient outcomes significantly.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Technology and healthcare working hand in hand for
-                          better health.
-                        </span>{" "}
-                        A milestone in medical technology.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/18.jpg"
-                        alt="Tom Chen"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Tom Chen</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Director of IT at HealthTech Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="7"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        By integrating #GreenTech&apos;s sustainable energy
-                        solutions, we&apos;ve seen a significant reduction in carbon
-                        footprint.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Leading the way in eco-friendly business practices.
-                        </span>{" "}
-                        Pioneering change in the industry.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/14.jpg"
-                        alt="Carlos Gomez"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Carlos Gomez
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Head of R&amp;D at EcoInnovate
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="8"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #TrendSetter&apos;s market analysis AI has transformed how we
-                        approach fashion trends.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our campaigns are now data-driven with higher customer
-                          engagement.
-                        </span>{" "}
-                        Revolutionizing fashion marketing.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/56.jpg"
-                        alt="Aisha Khan"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Aisha Khan
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Chief Marketing Officer at Fashion Forward
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="9"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Implementing #MediCareAI in our patient care systems has
-                        improved patient outcomes significantly.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Technology and healthcare working hand in hand for
-                          better health.
-                        </span>{" "}
-                        A milestone in medical technology.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/18.jpg"
-                        alt="Tom Chen"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Tom Chen</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Director of IT at HealthTech Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="7"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        By integrating #GreenTech&apos;s sustainable energy
-                        solutions, we&apos;ve seen a significant reduction in carbon
-                        footprint.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Leading the way in eco-friendly business practices.
-                        </span>{" "}
-                        Pioneering change in the industry.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/14.jpg"
-                        alt="Carlos Gomez"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Carlos Gomez
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Head of R&amp;D at EcoInnovate
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="8"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #TrendSetter&apos;s market analysis AI has transformed how we
-                        approach fashion trends.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Our campaigns are now data-driven with higher customer
-                          engagement.
-                        </span>{" "}
-                        Revolutionizing fashion marketing.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/56.jpg"
-                        alt="Aisha Khan"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Aisha Khan
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Chief Marketing Officer at Fashion Forward
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="9"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        Implementing #MediCareAI in our patient care systems has
-                        improved patient outcomes significantly.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Technology and healthcare working hand in hand for
-                          better health.
-                        </span>{" "}
-                        A milestone in medical technology.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/18.jpg"
-                        alt="Tom Chen"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Tom Chen</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Director of IT at HealthTech Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-col [--duration:70s]">
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="10"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #LearnSmart&apos;s AI-driven personalized learning plans have
-                        doubled student performance metrics.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Education tailored to every learner&apos;s needs.
-                        </span>{" "}
-                        Transforming the educational landscape.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/73.jpg"
-                        alt="Sofia Patel"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Sofia Patel
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CEO at EduTech Innovations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="11"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        With #CyberShield&apos;s AI-powered security systems, our
-                        data protection levels are unmatched.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Ensuring safety and trust in digital spaces.
-                        </span>{" "}
-                        Redefining cybersecurity standards.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/25.jpg"
-                        alt="Jake Morrison"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Jake Morrison
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CTO at SecureNet Tech
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="12"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #DesignPro&apos;s AI has streamlined our creative process,
-                        enhancing productivity and innovation.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Bringing creativity and technology together.
-                        </span>{" "}
-                        A game-changer for creative industries.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/78.jpg"
-                        alt="Nadia Ali"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Nadia Ali</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Product Manager at Creative Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="10"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #LearnSmart&apos;s AI-driven personalized learning plans have
-                        doubled student performance metrics.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Education tailored to every learner&apos;s needs.
-                        </span>{" "}
-                        Transforming the educational landscape.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/73.jpg"
-                        alt="Sofia Patel"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Sofia Patel
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CEO at EduTech Innovations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="11"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        With #CyberShield&apos;s AI-powered security systems, our
-                        data protection levels are unmatched.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Ensuring safety and trust in digital spaces.
-                        </span>{" "}
-                        Redefining cybersecurity standards.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/25.jpg"
-                        alt="Jake Morrison"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Jake Morrison
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CTO at SecureNet Tech
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="12"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #DesignPro&apos;s AI has streamlined our creative process,
-                        enhancing productivity and innovation.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Bringing creativity and technology together.
-                        </span>{" "}
-                        A game-changer for creative industries.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/78.jpg"
-                        alt="Nadia Ali"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Nadia Ali</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Product Manager at Creative Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="10"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #LearnSmart&apos;s AI-driven personalized learning plans have
-                        doubled student performance metrics.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Education tailored to every learner&apos;s needs.
-                        </span>{" "}
-                        Transforming the educational landscape.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/73.jpg"
-                        alt="Sofia Patel"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Sofia Patel
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CEO at EduTech Innovations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="11"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        With #CyberShield&apos;s AI-powered security systems, our
-                        data protection levels are unmatched.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Ensuring safety and trust in digital spaces.
-                        </span>{" "}
-                        Redefining cybersecurity standards.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/25.jpg"
-                        alt="Jake Morrison"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Jake Morrison
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CTO at SecureNet Tech
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="12"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #DesignPro&apos;s AI has streamlined our creative process,
-                        enhancing productivity and innovation.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Bringing creativity and technology together.
-                        </span>{" "}
-                        A game-changer for creative industries.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/78.jpg"
-                        alt="Nadia Ali"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Nadia Ali</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Product Manager at Creative Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="10"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #LearnSmart&apos;s AI-driven personalized learning plans have
-                        doubled student performance metrics.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Education tailored to every learner&apos;s needs.
-                        </span>{" "}
-                        Transforming the educational landscape.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/73.jpg"
-                        alt="Sofia Patel"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Sofia Patel
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CEO at EduTech Innovations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="11"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        With #CyberShield&apos;s AI-powered security systems, our
-                        data protection levels are unmatched.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Ensuring safety and trust in digital spaces.
-                        </span>{" "}
-                        Redefining cybersecurity standards.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/25.jpg"
-                        alt="Jake Morrison"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Jake Morrison
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          CTO at SecureNet Tech
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="12"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #DesignPro&apos;s AI has streamlined our creative process,
-                        enhancing productivity and innovation.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Bringing creativity and technology together.
-                        </span>{" "}
-                        A game-changer for creative industries.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/women/78.jpg"
-                        alt="Nadia Ali"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">Nadia Ali</p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Product Manager at Creative Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)] flex-col">
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="13"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #VentureAI&apos;s insights into startup ecosystems have been
-                        invaluable for our growth and funding strategies.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Empowering startups with data-driven decisions.
-                        </span>{" "}
-                        A catalyst for startup success.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/54.jpg"
-                        alt="Omar Farooq"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Omar Farooq
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Founder at Startup Hub
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="13"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #VentureAI&apos;s insights into startup ecosystems have been
-                        invaluable for our growth and funding strategies.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Empowering startups with data-driven decisions.
-                        </span>{" "}
-                        A catalyst for startup success.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/54.jpg"
-                        alt="Omar Farooq"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Omar Farooq
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Founder at Startup Hub
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="13"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #VentureAI&apos;s insights into startup ecosystems have been
-                        invaluable for our growth and funding strategies.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Empowering startups with data-driven decisions.
-                        </span>{" "}
-                        A catalyst for startup success.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/54.jpg"
-                        alt="Omar Farooq"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Omar Farooq
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Founder at Startup Hub
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee-vertical flex-col">
-                  <div
-                    className="flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4 bg-accent shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]"
-                    id="13"
-                  >
-                    <div className="select-none leading-relaxed font-normal text-primary/90">
-                      <p>
-                        #VentureAI&apos;s insights into startup ecosystems have been
-                        invaluable for our growth and funding strategies.
-                        <span className="p-1 py-0.5 font-medium dark:font-semibold text-secondary">
-                          Empowering startups with data-driven decisions.
-                        </span>{" "}
-                        A catalyst for startup success.
-                      </p>
-                    </div>
-                    <div className="flex w-full select-none items-center justify-start gap-3.5">
-                      <Image
-                        src="https://randomuser.me/api/portraits/men/54.jpg"
-                        alt="Omar Farooq"
-                        className="size-8 rounded-full"
-                        width={32}
-                        height={32}
-                      />
-                      <div>
-                        <p className="font-medium text-primary/90">
-                          Omar Farooq
-                        </p>
-                        <p className="text-xs font-normal text-primary/50">
-                          Founder at Startup Hub
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  {column3.map((testimonial, index) => (
+                    <TestimonialCard key={`col3-second-${testimonial.id}-${index}`} testimonial={testimonial} />
+                  ))}
                 </div>
               </div>
             </div>

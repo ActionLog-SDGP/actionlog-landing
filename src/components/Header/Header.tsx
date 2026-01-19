@@ -33,7 +33,7 @@ export default function Header() {
       >
         <div
           className={clsx(
-            "mx-auto max-w-7xl rounded-2xl transition-all duration-300 xl:px-0",
+            "mx-auto rounded-2xl transition-all duration-300 xl:px-0",
             isScrolled
               ? "px-2 border border-border backdrop-blur-lg bg-background/75"
               : "shadow-none px-7"
@@ -69,14 +69,7 @@ export default function Header() {
                   Try for free
                 </Link>
               </div>
-              <button
-                data-slot="button"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([className*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground size-9 cursor-pointer rounded-full h-8 w-8"
-              >
-                <Sun width={24} height={24} />
-                {/* <Moon width={24} height={24} /> */}
-                <span className="sr-only">Toggle theme</span>
-              </button>
+            
               <button className="md:hidden border border-border size-8 rounded-md cursor-pointer flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
